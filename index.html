@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loader-container" class="hidden">
+        <div class="dot-spinner">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Login Form -->
+        <div id="login-form-container" class="form-wrapper">
+            <h1 class="title">LOGIN</h1>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="login-username">USERNAME</label>
+                    <input type="text" id="login-username" name="username" required>
+                    <div class="error-message" id="username-error"></div>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">PASSWORD</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="login-password" name="password" required>
+                        <span class="toggle-password" id="toggle-login-password">
+                            <svg class="eye-icon eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            <svg class="eye-icon eye-closed hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.54 18.54 0 0 1 2.21-3.02m4.61-4.61A10.07 10.07 0 0 1 12 4c7 0 11 8 11 8a18.54 18.54 0 0 1-2.21 3.02m-4.61-4.61z"></path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="error-message" id="password-error"></div>
+                </div>
+                <button type="submit" class="button">LOGIN</button>
+            </form>
+            <div class="form-switcher">
+                <a href="#" id="show-signup">Register</a> | <a href="#" id="show-find-password">Forgot Password</a>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="signup-form-container" class="form-wrapper hidden">
+            <h1 class="title">REGISTER</h1>
+            <form id="signup-form">
+                <div class="input-group">
+                    <label for="signup-username">USERNAME</label>
+                    <div class="username-check-wrapper">
+                        <input type="text" id="signup-username" name="username" required>
+                        <button type="button" id="check-username-button" class="small-button">CHECK</button>
+                    </div>
+                    <div class="error-message" id="username-status-message"></div>
+                </div>
+                <div class="input-group">
+                    <label for="signup-email">EMAIL</label>
+                    <input type="email" id="signup-email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">PASSWORD</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="signup-password" name="password" required>
+                        <span class="toggle-password" id="toggle-signup-password">
+                            <svg class="eye-icon eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            <svg class="eye-icon eye-closed hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.54 18.54 0 0 1 2.21-3.02m4.61-4.61A10.07 10.07 0 0 1 12 4c7 0 11 8 11 8a18.54 18.54 0 0 1-2.21 3.02m-4.61-4.61z"></path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="password-conditions">
+                        <p id="condition-length" class="condition-item">At least 8 characters</p>
+                        <p id="condition-number" class="condition-item">Includes a number</p>
+                        <p id="condition-special" class="condition-item">Includes a special character</p>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="signup-confirm-password">CONFIRM PASSWORD</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="signup-confirm-password" name="confirm-password" required>
+                        <span class="toggle-password" id="toggle-signup-confirm-password">
+                            <svg class="eye-icon eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            <svg class="eye-icon eye-closed hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.54 18.54 0 0 1 2.21-3.02m4.61-4.61A10.07 10.07 0 0 1 12 4c7 0 11 8 11 8a18.54 18.54 0 0 1-2.21 3.02m-4.61-4.61z"></path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="error-message" id="confirm-password-error"></div>
+                </div>
+                <button type="submit" class="button" id="signup-submit-button" disabled>REGISTER</button>
+            </form>
+            <div class="form-switcher">
+                <a href="#" id="show-login-from-signup">Back to Login</a>
+            </div>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div id="find-password-form-container" class="form-wrapper hidden">
+            <h1 class="title">FORGOT PASSWORD</h1>
+            <form id="find-password-form">
+                <div class="input-group">
+                    <label for="find-email">EMAIL</label>
+                    <input type="email" id="find-email" name="email" required>
+                </div>
+                <button type="submit" class="button">SUBMIT</button>
+            </form>
+            <div class="form-switcher">
+                <a href="#" id="show-login-from-find">Back to Login</a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
